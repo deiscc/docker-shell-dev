@@ -1,8 +1,9 @@
 VERSION ?= $(shell git describe --tags --exact-match 2>/dev/null || echo latest)
 
 SHORT_NAME := shell-dev
+REGISTRY ?= quay.io/
 IMAGE_PREFIX ?= deiscc
-IMAGE := ${IMAGE_PREFIX}/${SHORT_NAME}:${VERSION}
+IMAGE := ${REGISTRY}${IMAGE_PREFIX}/${SHORT_NAME}:${VERSION}
 
 build:
 	docker build -t ${IMAGE} .

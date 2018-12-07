@@ -15,13 +15,13 @@ def registries = [
   quay: [
     staging: [
       name: 'quay-staging',
-      email: 'deisci+jenkins@deis.com',
-      username: 'deisci+jenkins',
+      email: 'deiscc+jenkins@deis.cc',
+      username: 'deiscc+jenkins',
       credentials: wrapId('c67dc0a1-c8c4-4568-a73d-53ad8530ceeb'),
     ],
     production: [
       name: 'quay-production',
-      email: 'deis+jenkins@deis.com',
+      email: 'deis+jenkins@deis.cc',
       username: 'deis+jenkins',
       credentials: wrapId('8317a529-10f7-40b5-abd4-a42f242f22f0'),
     ],
@@ -29,13 +29,13 @@ def registries = [
   dockerhub: [
     staging: [
       name: 'dockerhub-staging',
-      email: 'dummy-address@deis.com',
+      email: 'dummy-address@deis.cc',
       username: 'deisbot',
       credentials: wrapId('0d1f268f-407d-4cd9-a3c2-0f9671df0104'),
     ],
     production: [
       name: 'dockerhub-production',
-      email: 'dummy-address@deis.com',
+      email: 'dummy-address@deis.cc',
       username: 'deisbot',
       credentials: wrapId('0d1f268f-407d-4cd9-a3c2-0f9671df0104'),
     ],
@@ -61,7 +61,7 @@ def deriveCommit = {
 def buildAndPush = { Map registry, String commit ->
   String server = registry.name.contains('dockerhub') ? '' : 'quay.io'
   String registryPrefix = registry.name.contains('quay') ? 'quay.io/' : ''
-  String imagePrefix = registry.name.contains('staging') ? 'deisci' : 'deis'
+  String imagePrefix = registry.name.contains('staging') ? 'deiscc' : 'deis'
   String version = registry.name.contains('staging') ? "git-${commit}" : 'latest'
 
   sh """
