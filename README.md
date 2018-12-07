@@ -1,7 +1,6 @@
 # deis/docker-shell-dev
 
-[![Build Status](https://ci.deis.io/buildStatus/icon?job=Deis/docker-shell-dev/master)](https://ci.deis.io/job/Deis/job/docker-shell-dev/job/master/)
-[![Docker Repository on Quay](https://quay.io/repository/deis/shell-dev/status "Docker Repository on Quay")](https://quay.io/repository/deis/shell-dev)
+[![Build Status](https://travis-ci.org/deiscc/docker-shell-dev.svg?branch=master)](https://travis-ci.org/deiscc/docker-shell-dev)
 
 A containerized environment for running [bats][] tests and/or [shellcheck][] against bash scripts.
 
@@ -20,7 +19,7 @@ Mount the host directory containing your bash `scripts` dir and bats
 $ docker run --rm \
   --volume /path/to/dir:/workdir \
   --workdir /workdir \
-  quay.io/deis/shell-dev:latest \
+  deiscc/shell-dev:latest \
   bats tests
 ```
 
@@ -28,24 +27,18 @@ $ docker run --rm \
 $ docker run --rm \
   --volume /path/to/dir:/workdir \
   --workdir /workdir \
-  quay.io/deis/shell-dev:latest \
+  deiscc/shell-dev:latest \
   shellcheck scripts/*
 ```
 
 The latest deis/shell-dev Docker image is available at:
 
-* [Quay.io][]
-  ```
-  docker pull quay.io/deis/shell-dev
-  ```
-
 * [Docker Hub][]
   ```
-  docker pull deis/shell-dev
+  docker pull deiscc/shell-dev
   ```
 
 [bats]: https://github.com/sstephenson/bats/
 [shellcheck]: https://github.com/koalaman/shellcheck
 [jq]: https://stedolan.github.io/jq/
-[Quay.io]: https://quay.io
 [Docker Hub]: https://hub.docker.com
